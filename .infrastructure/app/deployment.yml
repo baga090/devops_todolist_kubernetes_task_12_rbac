@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todoapp
+  name: todoapp-deployment
   namespace: todoapp
 spec:
   strategy:
@@ -17,7 +17,7 @@ spec:
       labels:
         app: todoapp
     spec:
-      serviceAccountName: secrets-reader
+      serviceAccountName: todoapp-sa
       containers:
       - name: todoapp
         image: ikulyk404/todoapp:4.0.1
