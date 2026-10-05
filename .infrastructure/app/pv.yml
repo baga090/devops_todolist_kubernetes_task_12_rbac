@@ -2,13 +2,13 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-data
-  namespace: todoapp
+  labels:
+    type: local
 spec:
-  storageClassName: standard
-  persistentVolumeReclaimPolicy: Delete
-  accessModes:
-    - ReadWriteMany
+  storageClassName: manual
   capacity:
     storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
   hostPath:
-    path: /data/
+    path: "/data"
